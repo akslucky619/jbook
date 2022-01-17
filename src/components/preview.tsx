@@ -31,9 +31,11 @@ const Preview: React.FC<PreviewProps> = ({ code }) => {
   const iframe = useRef<any>();
 
   useEffect(() => {
-    // incase user deletes docuument.body.innerHTML
     iframe.current.srcdoc = html;
-    iframe.current.contentWindow.postMessage(code, "*");
+    setTimeout(() => {
+      iframe.current.contentWindow.postMessage(code, "*");
+    }, 50);
+    // incase user deletes docuument.body.innerHTML
   }, [code]);
 
   return (
