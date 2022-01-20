@@ -4,3 +4,35 @@ import reducers from "./reducers";
 import { ActionTypes } from "./action-types";
 
 export const store = createStore(reducers, applyMiddleware(thunk));
+
+store.dispatch({
+  type: ActionTypes.INSERT_CELL_BEFORE,
+  payload: {
+    id: null,
+    type: "code",
+  },
+});
+
+store.dispatch({
+  type: ActionTypes.INSERT_CELL_BEFORE,
+  payload: {
+    id: null,
+    type: "text",
+  },
+});
+
+store.dispatch({
+  type: ActionTypes.INSERT_CELL_BEFORE,
+  payload: {
+    id: null,
+    type: "code",
+  },
+});
+
+store.dispatch({
+  type: ActionTypes.INSERT_CELL_BEFORE,
+  payload: {
+    id: null,
+    type: "text",
+  },
+});
