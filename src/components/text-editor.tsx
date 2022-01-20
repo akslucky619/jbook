@@ -32,6 +32,7 @@ const TextEditor: React.FC<TextEditorProps> = ({ cell }) => {
     };
   }, []);
 
+
   if (editing) {
     return (
       <div className="text-editor" ref={ref}>
