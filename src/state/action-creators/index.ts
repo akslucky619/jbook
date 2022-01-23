@@ -1,3 +1,4 @@
+import { Dispatch } from "react";
 import { ActionTypes } from "../action-types";
 import {
   Action,
@@ -5,9 +6,12 @@ import {
   DeleteCellAction,
   MoveCellAction,
   InsertCellAfterAction,
+  BundleStartAction,
+  BundleCompleteAction,
   Direction,
 } from "../actions";
 import { CellTypes } from "../cell";
+import bundle from "../../bundler";
 
 export const updateCell = (id: string, content: string): UpdateCellAction => {
   console.log(content, "content");
@@ -48,5 +52,25 @@ export const insertCellAfter = (
       id,
       type: cellType,
     },
+  };
+};
+
+export const createBundle = (cellId: string, input: string) => {
+  return async (dispatch: Dispatch<Action>) => {
+    dispatch({
+      type: ActionTypes.BUNDLE_START,
+      payload: {
+        cellId,
+      },
+    });
+    const result = await bundle(input);
+
+    dispatch({
+      type: ActionTypes.BUNDLE_COMPLETE,
+      payload: {
+        cellId,
+        bundle: result,
+      },
+    });
   };
 };
