@@ -6,16 +6,12 @@ import {
   DeleteCellAction,
   MoveCellAction,
   InsertCellAfterAction,
-  BundleStartAction,
-  BundleCompleteAction,
   Direction,
 } from "../actions";
 import { CellTypes } from "../cell";
 import bundle from "../../bundler";
 
 export const updateCell = (id: string, content: string): UpdateCellAction => {
-  console.log(content, "content");
-
   return {
     type: ActionTypes.UPDATE_CELL,
     payload: {
