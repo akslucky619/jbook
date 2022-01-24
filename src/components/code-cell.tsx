@@ -17,8 +17,6 @@ const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const bundle = useTypedSelector((state) => state.bundles[cell.id]);
   const culmulativeCode = useCumulativeCode(cell.id);
 
-  console.log(culmulativeCode);
-
   useEffect(() => {
     if (!bundle) {
       createBundle(cell.id, culmulativeCode);
